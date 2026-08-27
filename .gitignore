@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+scripts/test_*.py
+data/micin_alert_state.json
