@@ -283,21 +283,64 @@ def _erc20_allowance_slot(owner, spender):
 
 def _rpc(method, params, timeout=8):
     body = json.dumps({"jsonrpc":"2.0","id":1,"method":method,"params":params}).encode()
-    req = urllib.request.Request(RPC, data=body.encode(),
+    req = urllib.request.Request(RPC, data=body,
         headers={"Content-Type":"application/json","User-Agent":UA})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode()).get("result")
 
+def _pick_holder(cand):
+    """Return a plausible token holder address from scan data (top holders via Blockscout)."""
+    addr = cand.get("addr") or cand.get("token")
+    if not addr: return None
+    try:
+        j = bs(f"/tokens/{addr}/holders?items_count=5")
+        items = j.get("items", []) if isinstance(j, dict) else []
+        if not items:
+            j = bs(f"/tokens/{addr}/holders")
+            items = j.get("items", []) if isinstance(j, dict) else []
+        for it in items:
+            h = ((it.get("address") or {}).get("hash") or "").lower()
+            if h and h != "0x" + "0"*40: return h
+    except Exception:
+        pass
+    return None
+
+def _token_transfer_honeypot(addr, holder, amount=10**16):
+    """Token-level honeypot check: simulate transfer from a holder. If it reverts, can't sell = honeypot.
+    Returns {"method":"token_transfer","honeypot":bool,"note":...} or SKIPPED."""
+    if not holder: return {"method":"SKIPPED","reason":"no_holder"}
+    RECIP = "0xdead000000000000000000000000000000000004"
+    amt = hex(amount)[2:].zfill(64)
+    data = "0xa9059cbb" + RECIP[2:].zfill(64) + amt
+    try:
+        params = [{"from": holder, "to": addr, "data": data}, "latest"]
+        res = _rpc("eth_call", params, timeout=15)
+        if res and res != "0x":
+            # transfer returned 0x...01 (true) → token can be moved → not a honeypot at transfer level
+            return {"method":"token_transfer","honeypot":False,
+                    "note":"transfer from holder OK (no transfer-level honeypot)"}
+        # empty result → possibly reverted
+        return {"method":"token_transfer","honeypot":True,
+                "note":"transfer from holder returned empty/revert — cannot sell?"}
+    except Exception as e:
+        return {"method":"SKIPPED","reason":f"transfer_check:{str(e)[:50]}"}
+
 def tax_sim_live(cand, addr, decimals=18):
     """
-    Attempt live swap sim via SwapRouter02 exactInputSingle with state_override.
-    Fakes TEST sender balance + router allowance on the QUOTE token, then measures
-    received vs expected to derive buy tax and sell tax. Honeypot if sell reverts.
-    Returns dict with buy_tax/sell_tax/honeypot or {"method":"SKIPPED","reason":...}.
+    Live swap sim via SwapRouter — buy & sell tax via eth_call + state_override.
+    For V4 pools (pair_addr = 64 hex), falls back to token-level transfer check.
+    Best-effort — never blocks pipeline.
     """
     if not RPC or not SWAP_ROUTER: return {"method":"SKIPPED","reason":"no_rpc_or_router"}
     pair_addr = cand.get("pair_addr")
     if not pair_addr: return {"method":"SKIPPED","reason":"no_pair_addr"}
+    # V4 detection: pair_addr is 64-hex (32B poolId) not 40-hex (20B EVM address)
+    if len(pair_addr) == 66:  # 0x + 64 hex = V4 poolId
+        # Token-level honeypot check: try transfer from a holder
+        holder = _pick_holder(cand)
+        if holder:
+            return _token_transfer_honeypot(addr, holder)
+        return {"method":"SKIPPED","reason":"v4_pool_token_transfer_uncheckable"}
     TEST = "0xdead000000000000000000000000000000000003"
     try:
         fee = int(_rpc("eth_call", [{"to":pair_addr,"data":"0xddca3f43"},"latest"]) or "0x0", 16)
@@ -415,10 +458,10 @@ def build_deployer_map(cands):
         dep_map[dep]["tokens"].append(c["addr"])
         dep_map[dep]["total_launches"] = dep_map[dep].get("total_launches",0)+1
         dep_map[dep]["verified_all"] = dep_map[dep]["verified_all"] and c.get("verified",False)
-    # Serial launchers: deployer with >=3 tokens
+    # Serial launchers: deployer with >=2 tokens (pairs are meaningful serial signal)
     serial = {}
     for dep, info in dep_map.items():
-        if info["total_launches"] >= 3:
+        if info["total_launches"] >= 2:
             serial[dep] = info
     return serial
 
