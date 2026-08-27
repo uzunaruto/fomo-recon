@@ -1,0 +1,1003 @@
+{
+ "window": "7d",
+ "generated_at": "20260827_163516",
+ "leaderboard_count": 100,
+ "traders": [
+  {
+   "rank": 1,
+   "id": "b8d2fc17-0b5c-54c3-af67-137c6b4e4bf0",
+   "handle": "ether_monk",
+   "label": "Ethermonk \ud83d\udcff",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/5d6b7b6eddfcd23081803f18d57f8635_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 2012078.361938132,
+   "volume": 6226370.558216,
+   "followers": 242292,
+   "numTrades": 1431,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 83,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 5,
+   "id": "d676a05f-0b3e-57d1-86dc-d6986927c6c8",
+   "handle": "Aurelius0121",
+   "label": "Aurelius",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/5d796731548758dc87c26f3d4c5551ef_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 1478503.1645283052,
+   "volume": 7615370.352902,
+   "followers": 266049,
+   "numTrades": 2166,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 82,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 17,
+   "id": "2e955ffc-6fac-578a-93d8-3324605f6bed",
+   "handle": "change",
+   "label": "change",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/28e6f5ac73f7361f02980d1b36f723d3_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 720585.8012943943,
+   "volume": 22525561.981401,
+   "followers": 329435,
+   "numTrades": 2046,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 76,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 3,
+   "id": "36adb85a-c0fd-5fa8-916d-8fdc32fe4237",
+   "handle": "unipcs",
+   "label": "Unipcs",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/685a72bf4e0ab7095593e7618caa5c8e_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 1872175.3576062878,
+   "volume": 1086781.02891,
+   "followers": 260062,
+   "numTrades": 1602,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 75,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 2,
+   "id": "6e51b3ef-54bc-5062-894b-3f06986ac242",
+   "handle": "DumbCrayonEater",
+   "label": "DumbCrayonEater",
+   "avatarUrl": null,
+   "pnl": 1955222.7347850858,
+   "volume": 862377.040871,
+   "followers": 259758,
+   "numTrades": 1596,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 72,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 4,
+   "id": "df983a8b-5e5b-5e91-802f-1472e96f04c3",
+   "handle": "PoorGoat_",
+   "label": "PoorGoat\ud83d\udc02\ud83c\udc04\ufe0f\ud83d\udc9b\ud83d\udc08",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/9f9d7ee2e587acaa358bb13a04118b9c_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 1787602.288157605,
+   "volume": 1404005.330325,
+   "followers": 484638,
+   "numTrades": 1896,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 72,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 19,
+   "id": "a1a13516-71ce-5191-8b55-089125ade8a1",
+   "handle": "loganlim_x",
+   "label": "Logan Lim",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/e07cf12864bc315490934513347ff8f6_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 659728.9868098963,
+   "volume": 8675174.933017,
+   "followers": 107537,
+   "numTrades": 1106,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 68,
+   "smart_flags": [
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 12,
+   "id": "fc3ea5c0-afc4-553c-a295-f838907dc581",
+   "handle": "theveeman",
+   "label": "Vee",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/c55c219493a52e510a79faf51ce1d251_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 780586.3821891346,
+   "volume": 2525701.197131,
+   "followers": 119861,
+   "numTrades": 1526,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 65,
+   "smart_flags": [
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 11,
+   "id": "36565fe5-7f8b-5a43-a8d0-c76b12f44225",
+   "handle": "Quanterty",
+   "label": "Qwerty",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/deda15fdc8895b2e081194fe2aec4104_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 852507.1640704072,
+   "volume": 4829964.321294,
+   "followers": 235644,
+   "numTrades": 813,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 64,
+   "smart_flags": [
+    "WHALE",
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 9,
+   "id": "8aa5b518-2367-5e93-a6e0-2a9e4edda31c",
+   "handle": "brrrgrrrz",
+   "label": "Burgz",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/07c38e08aa3d9132def53ee960b28df7_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 1015828.6238270869,
+   "volume": 2855914.670821,
+   "followers": 29798,
+   "numTrades": 1832,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 63,
+   "smart_flags": [
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 15,
+   "id": "30d4f0d1-e895-524c-b45e-ec67c29ce1a8",
+   "handle": "0xleo",
+   "label": "leo",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/fe6fce6f5cb604fa59c87b1d6c5aad24_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 746612.3286304305,
+   "volume": 22955341.490904,
+   "followers": 56761,
+   "numTrades": 907,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 63,
+   "smart_flags": [
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 31,
+   "id": "7eb1f336-15ab-5b3e-b4ad-e826d226c9c6",
+   "handle": "jotagezin",
+   "label": "jg",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/61cc9c046cd8008d72f9c1e6ceccfe77_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 410880.50448581506,
+   "volume": 10940365.798719,
+   "followers": 109139,
+   "numTrades": 2136,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 63,
+   "smart_flags": [],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 6,
+   "id": "00903129-2c44-5803-9b25-cb0bfdfd6878",
+   "handle": "Salem1299534",
+   "label": "Salem",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/3d08ecc37973844cc48b046b4efdb655_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 1409823.4072951542,
+   "volume": 2020450.037943,
+   "followers": 41118,
+   "numTrades": 811,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 62,
+   "smart_flags": [
+    "SERIOUS"
+   ],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 13,
+   "id": "1a8f7cf4-6665-5d29-860d-0f338511c207",
+   "handle": "insentos",
+   "label": "insentos",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/ee87ba00e4325dfa75f8bda3a78ea2a4_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 778276.6560331327,
+   "volume": 6433995.203207,
+   "followers": 91283,
+   "numTrades": 361,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 62,
+   "smart_flags": [],
+   "solana": null,
+   "evm": null
+  },
+  {
+   "rank": 10,
+   "id": "77e707d5-3e83-55f8-8ddd-acc0b893010c",
+   "handle": "0xAvast",
+   "label": "Avast",
+   "avatarUrl": "https://prod-fomo-profile-pics.s3.amazonaws.com/a1d03f95749bb2c2150d9c682f5fe90b_small.jpg?k=239xAH6y1F7vEr5wvH-Pm3UAA",
+   "pnl": 903501.04711235,
+   "volume": 969824.311059,
+   "followers": 248450,
+   "numTrades": 341,
+   "memberCount": null,
+   "marketCap": null,
+   "price": null,
+   "liquidity": null,
+   "smart_score": 57,
+   "smart_flags": [],
+   "solana": null,
+   "evm": null
+  }
+ ],
+ "thesis": [
+  {
+   "id": "f88b9bfb-7c30-449a-a5d7-aa69f9efcfe8",
+   "authorHandle": "ftbs",
+   "thesis": "he ran it to 10 mil today, will it do the same",
+   "fomoCreatedAt": 1787823340110,
+   "tokenAddress": "9LBzAqVUtpggTvsA5dDhGhgw1L1uQZG8WiUxMiKspump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": null,
+   "authorId": "372ab09e-00b1-5269-ac91-130a1cc198f6",
+   "authorName": "fordamandem",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "he ran it to 10 mil today, will it do the same",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 320.0669717594384,
+   "authorTradeUsd": 320.0669717594384,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 21.565096759438386,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 7.224442646947657,
+   "tokenAmount": 6079824.700564,
+   "closedAt": null
+  },
+  {
+   "id": "b2f622a4-b8eb-4936-a700-aa8609691fca",
+   "authorHandle": "paidwaynfa",
+   "thesis": "imagine how rich youd be if you js sold all your other coins and bought cate",
+   "fomoCreatedAt": 1787823329141,
+   "tokenAddress": "Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "CATE",
+   "authorId": "9d9f1bb1-c26a-5931-93b6-38c926662b35",
+   "authorName": "nfabtw",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "imagine how rich youd be if you js sold all your other coins and bought cate",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 17.65934488441146,
+   "authorTradeUsd": 32.73925263822706,
+   "pnl": 15.079907753815599,
+   "realizedPnlUsd": 15.079907753815599,
+   "unrealizedPnlUsd": 9.494324130595833,
+   "percentageRealizedPnl": 12.241921663283623,
+   "percentageUnrealizedPnl": 116.28046537614745,
+   "tokenAmount": 292.1839899999998,
+   "closedAt": null
+  },
+  {
+   "id": "a1e4d0bb-f5e6-4232-b26f-7b23da2e8dca",
+   "authorHandle": "mrbean",
+   "thesis": "millions for the monkey doin biz",
+   "fomoCreatedAt": 1787823327160,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "c14d6ea1-a959-56c5-aa9e-07c7ac130a4e",
+   "authorName": "mrbean",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "millions for the monkey doin biz",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 565.4123732692103,
+   "authorTradeUsd": 565.4123732692103,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 309.60076226921035,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 121.02686076638263,
+   "tokenAmount": 2383719.655685,
+   "closedAt": null
+  },
+  {
+   "id": "8d6b7dea-209a-44e0-9c47-1f3adcd8a8c2",
+   "authorHandle": "MHProfits",
+   "thesis": "another buy opportunity i believe in this",
+   "fomoCreatedAt": 1787823317225,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "552a6e30-cb25-5049-be47-17fe1ee87bba",
+   "authorName": "MHProfits",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "another buy opportunity i believe in this",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 20.430786607902817,
+   "authorTradeUsd": 20.430786607902817,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 0.8307866079028156,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 4.23870718317763,
+   "tokenAmount": 86134.067666,
+   "closedAt": null
+  },
+  {
+   "id": "385631f7-e498-4a17-9f82-5b37e40c3263",
+   "authorHandle": "NIMARZ",
+   "thesis": "250k \u2014> 480k \u2014-> 1M",
+   "fomoCreatedAt": 1787823316124,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "9acc19f8-2284-58aa-9508-7965aefecef6",
+   "authorName": "NIMARZ",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "250k \u2014> 480k \u2014-> 1M",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 264.30122040356497,
+   "authorTradeUsd": 264.30122040356497,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 231.11811440356493,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 696.4933132045111,
+   "tokenAmount": 1106800.935812,
+   "closedAt": null
+  },
+  {
+   "id": "87e1a1fa-612b-46a7-aafe-d8db3e2bd1dc",
+   "authorHandle": "D1BOT",
+   "thesis": "hold to the moon \ud83d\ude2a",
+   "fomoCreatedAt": 1787823296798,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "231f6472-a088-577a-ba4f-9839f72faeaf",
+   "authorName": "D1BOT",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "hold to the moon \ud83d\ude2a",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 8.055030406970216,
+   "authorTradeUsd": 8.785366977738201,
+   "pnl": -0.7303365707679857,
+   "realizedPnlUsd": -0.7303365707679857,
+   "unrealizedPnlUsd": -0.614659022261804,
+   "percentageRealizedPnl": -7.354619632117945,
+   "percentageUnrealizedPnl": -7.089746723675335,
+   "tokenAmount": 34955.98014100001,
+   "closedAt": null
+  },
+  {
+   "id": "f24a472c-d331-4644-9c6c-de90cd40240e",
+   "authorHandle": "valakperps",
+   "thesis": "STOP SELLING MONKEYS",
+   "fomoCreatedAt": 1787823295706,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "2698ef13-1c6b-5eb6-a6f9-2439aea2156b",
+   "authorName": "Valak | \u30f4\u30a1\u30e9\u30af",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "STOP SELLING MONKEYS",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 7.290521986648346,
+   "authorTradeUsd": 7.290521986648346,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -0.5094780133516537,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -6.531769401944278,
+   "tokenAmount": 28710.003991,
+   "closedAt": null
+  },
+  {
+   "id": "4aa2efe3-32a6-4a60-a417-1ca902e6df8f",
+   "authorHandle": "WillSch12400253",
+   "thesis": "just let the bundles get out",
+   "fomoCreatedAt": 1787823294867,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "75315a28-0190-5dfb-a35c-40c22330ba71",
+   "authorName": "Degen Trader",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "just let the bundles get out",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 137.0370885919741,
+   "authorTradeUsd": 137.0370885919741,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 58.44175159197411,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 74.35778485430264,
+   "tokenAmount": 573863.327846,
+   "closedAt": null
+  },
+  {
+   "id": "3e316033-bf39-4f5b-abf4-c8caa98645f0",
+   "authorHandle": "Athanasy",
+   "thesis": "this goes millions easy",
+   "fomoCreatedAt": 1787823290940,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "9f2d04d5-7c7d-5bf3-8df6-433d98d12e10",
+   "authorName": "Athanasy",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "this goes millions easy",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 219.99384149931268,
+   "authorTradeUsd": 219.99384149931268,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 101.6650014993127,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 85.91734821309218,
+   "tokenAmount": 866333.5875,
+   "closedAt": null
+  },
+  {
+   "id": "52bdabba-4791-49d4-ab70-e56336b0c62b",
+   "authorHandle": "Emjayx34",
+   "thesis": "from here on the only way is up",
+   "fomoCreatedAt": 1787823290359,
+   "tokenAddress": "Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "CATE",
+   "authorId": "ff96e340-9f4d-55a2-83f6-c4875491eb27",
+   "authorName": "Emjayy",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "from here on the only way is up",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 285.84244452879204,
+   "authorTradeUsd": 285.84244452879204,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 0.35312952879207027,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 0.12369273042392857,
+   "tokenAmount": 4719.705228,
+   "closedAt": null
+  },
+  {
+   "id": "335093d2-51b1-46df-bea2-f4db07c2b831",
+   "authorHandle": "TruffleTrader",
+   "thesis": "all it takes is a few buys",
+   "fomoCreatedAt": 1787823289100,
+   "tokenAddress": "6owizP7rMetTrcMVYSZn6WwQCYp1dSiw6NN5CY63pump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "COM",
+   "authorId": "4d2f5a57-0899-537f-b7ce-f89813fce3ab",
+   "authorName": "Haiden",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "all it takes is a few buys",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 72.28011976477829,
+   "authorTradeUsd": 72.28011976477829,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -50.35423523522171,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -41.06046403980492,
+   "tokenAmount": 4353648.57404,
+   "closedAt": null
+  },
+  {
+   "id": "b68258aa-90a0-4c07-8f2b-d5282bb9ed02",
+   "authorHandle": "diamondcam",
+   "thesis": "just put the ketchup on my fries",
+   "fomoCreatedAt": 1787823282568,
+   "tokenAddress": "FeDrozMMWvy1MjV7Y5pcgssxiN42TR1fV3GqYmohqA6W",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "KETCHUP",
+   "authorId": "55f5452f-c159-5eab-9bd5-e146db0f6fdb",
+   "authorName": "diamondcam",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "just put the ketchup on my fries",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 109.7758040526077,
+   "authorTradeUsd": 109.7758040526077,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 8.23618005260768,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 8.111296583693946,
+   "tokenAmount": 2781528.325673243,
+   "closedAt": null
+  },
+  {
+   "id": "d8d25059-7e5a-4b5a-8b25-427f2ebe09fe",
+   "authorHandle": "DROLLIN459",
+   "thesis": "if i sell what i have rn and buy at the market its at right now would i earn more when it goes back up or keep holidng lmk pls",
+   "fomoCreatedAt": 1787823281412,
+   "tokenAddress": "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "CYBERLEEK",
+   "authorId": "59900d44-b822-55e7-8a8d-0b4eb4d656d4",
+   "authorName": "Dame",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "if i sell what i have rn and buy at the market its at right now would i earn more when it goes back up or keep holidng lmk pls",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 10.69453934962939,
+   "authorTradeUsd": 10.69453934962939,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -8.70568165037061,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -44.87413648726275,
+   "tokenAmount": 1864.1791291270001,
+   "closedAt": null
+  },
+  {
+   "id": "cb825f52-7652-4bd0-816f-f9432bf43d85",
+   "authorHandle": "vDrxpzAI",
+   "thesis": "need everyone showing love to my $CATE videos. \nlike, comment, repost on all\nhttps://www.tiktok.com/@vdrxpz?_r=1&_t=ZT-99EESj6oARh\n\nlove yall\ud83e\udee1\u2764\ufe0f",
+   "fomoCreatedAt": 1787823277837,
+   "tokenAddress": "Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "CATE",
+   "authorId": "956bf2ed-022e-5c69-bce4-096fa040c586",
+   "authorName": "vDrxpz",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "need everyone showing love to my $CATE videos. \nlike, comment, repost on all\n",
+     "link": null,
+     "provider": null
+    },
+    {
+     "text": "https://www.tiktok.com/@vdrxpz?_r=1&_t=ZT-99EESj6oARh",
+     "link": "https://www.tiktok.com/@vdrxpz?_r=1&_t=ZT-99EESj6oARh",
+     "provider": "tiktok"
+    },
+    {
+     "text": "\n\nlove yall\ud83e\udee1\u2764\ufe0f",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 1069.8435991365443,
+   "authorTradeUsd": 1508.856946928633,
+   "pnl": 439.01334779208867,
+   "realizedPnlUsd": 439.01334779208867,
+   "unrealizedPnlUsd": 854.6845453004114,
+   "percentageRealizedPnl": 165.8821519949936,
+   "percentageUnrealizedPnl": 397.23382774835363,
+   "tokenAmount": 17696.854599000006,
+   "closedAt": null
+  },
+  {
+   "id": "80f24de0-5d7b-4730-be51-a79946c7f413",
+   "authorHandle": "Manny1384",
+   "thesis": "let's go",
+   "fomoCreatedAt": 1787823277560,
+   "tokenAddress": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "ANSEM",
+   "authorId": "328c0f22-8abc-5153-aed0-6f7dec818b9f",
+   "authorName": "Manny1384",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "let's go",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 48.119961379624385,
+   "authorTradeUsd": 48.119961379624385,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -0.7409866203756159,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -1.516521170190181,
+   "tokenAmount": 133.419816,
+   "closedAt": null
+  },
+  {
+   "id": "31b8e161-25ef-479b-b546-af61ac246679",
+   "authorHandle": "revade",
+   "thesis": "I\u2019m CHIMPING OUT",
+   "fomoCreatedAt": 1787823270047,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "31c9524e-57d6-5f65-9a01-8a9d6c2c9075",
+   "authorName": "revade",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "I\u2019m CHIMPING OUT",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 159.61861929197335,
+   "authorTradeUsd": 159.61861929197335,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 69.48811629197333,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 77.09722455667792,
+   "tokenAmount": 628576.555328,
+   "closedAt": null
+  },
+  {
+   "id": "1051ab4a-a694-4616-832c-e6c77c4997c5",
+   "authorHandle": "fudneet",
+   "thesis": "i rly do believe it\u2019s gonna pump hard today",
+   "fomoCreatedAt": 1787823262354,
+   "tokenAddress": "0x48a46238f97acd13c311d7a4e7159a3fd74e7777",
+   "tokenNetwork": "bsc",
+   "tokenSymbol": "\u58a9\u58a9",
+   "authorId": "833a729d-1048-5ab2-9f63-5e683409fe07",
+   "authorName": "neet",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "i rly do believe it\u2019s gonna pump hard today",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 5.987467839453974,
+   "authorTradeUsd": 9.763113248537746,
+   "pnl": 3.7756454090837717,
+   "realizedPnlUsd": 3.7756454090837717,
+   "unrealizedPnlUsd": -34.427034922863776,
+   "percentageRealizedPnl": 63.113068074327586,
+   "percentageUnrealizedPnl": -85.18485338130486,
+   "tokenAmount": 43595.60939440699,
+   "closedAt": null
+  },
+  {
+   "id": "8f46b5ec-010e-40e8-820d-9a97fbc61fc2",
+   "authorHandle": "Gurr07",
+   "thesis": "Spiderman would keep on fighting, even at his lowest.",
+   "fomoCreatedAt": 1787823257834,
+   "tokenAddress": "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "CYBERLEEK",
+   "authorId": "674afeab-446c-56be-a9f3-4886f5055e95",
+   "authorName": "Gurr",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "Spiderman would keep on fighting, even at his lowest.",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 22.371189704638773,
+   "authorTradeUsd": 22.371189704638773,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -2.1288252953612266,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -8.689077518365709,
+   "tokenAmount": 3891.376723991,
+   "closedAt": null
+  },
+  {
+   "id": "ef6d0497-de35-4b31-af2e-bbc08bd33867",
+   "authorHandle": "EqualWetClam",
+   "thesis": "https://x.com/gtagmemes/status/2092271039673688564?s=46",
+   "fomoCreatedAt": 1787823246168,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "0aad1492-1f4d-54c9-81b5-e2107cdc5b1e",
+   "authorName": "EqualWetClam",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "https://x.com/gtagmemes/status/2092271039673688564?s=46",
+     "link": "https://x.com/gtagmemes/status/2092271039673688564?s=46",
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 8.480540404559987,
+   "authorTradeUsd": 8.480540404559987,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": 0.17828440455998723,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": 2.14742118961385,
+   "tokenAmount": 37483.498538,
+   "closedAt": null
+  },
+  {
+   "id": "d595563d-7d23-4a25-8fa7-80b8e9132813",
+   "authorHandle": "Juston",
+   "thesis": "LETS GET RICH BOYSS BUT NOW NOW NOW!!!!!!",
+   "fomoCreatedAt": 1787823235028,
+   "tokenAddress": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "tokenNetwork": "sol",
+   "tokenSymbol": "Biz",
+   "authorId": "e7d57abb-0e34-5ce8-b50d-50b74fbebc0e",
+   "authorName": "Juston",
+   "authorIsDev": false,
+   "segments": [
+    {
+     "text": "LETS GET RICH BOYSS BUT NOW NOW NOW!!!!!!",
+     "link": null,
+     "provider": null
+    }
+   ],
+   "likeCount": 0,
+   "holdingsUsd": 398.102945235484,
+   "authorTradeUsd": 398.102945235484,
+   "pnl": 0,
+   "realizedPnlUsd": 0,
+   "unrealizedPnlUsd": -78.17485376451604,
+   "percentageRealizedPnl": 0,
+   "percentageUnrealizedPnl": -16.413709378991236,
+   "tokenAmount": 1571235.389194,
+   "closedAt": null
+  }
+ ],
+ "alpha": [
+  {
+   "chain": "solana",
+   "price": 0.0002574,
+   "mc": 257451.0,
+   "liquidity": 43856.22,
+   "vol24": 776714.33,
+   "ch5m": -8.8,
+   "ch1h": 498.0,
+   "ch6h": 498.0,
+   "ch24h": 498.0,
+   "pair": "https://dexscreener.com/solana/8xkfcfxyv8UHue9DUVdfUAL7zAGfqRc1f36HRBaHyMcu",
+   "dex": "pumpswap",
+   "symbol": "Biz",
+   "token": "XhQ6ByZ9Z3japZ7UpscuHmPLT76F2ympH78y1Fopump",
+   "mentions": 10,
+   "authors": [
+    "mrbean",
+    "MHProfits",
+    "NIMARZ",
+    "D1BOT"
+   ],
+   "alpha_score": 78
+  },
+  {
+   "chain": "solana",
+   "price": 0.06067,
+   "mc": 58499568.0,
+   "liquidity": 2304488.73,
+   "vol24": 7674526.36,
+   "ch5m": -0.78,
+   "ch1h": -5.68,
+   "ch6h": 4.5,
+   "ch24h": -8.7,
+   "pair": "https://dexscreener.com/solana/HMzvsEEmtzHhvZNw9uwbaG85HCTmFnkbhzUx16cy7ca3",
+   "dex": "pumpswap",
+   "symbol": "CATE",
+   "token": "Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump",
+   "mentions": 3,
+   "authors": [
+    "paidwaynfa",
+    "Emjayx34",
+    "vDrxpzAI"
+   ],
+   "alpha_score": 63
+  },
+  {
+   "chain": "solana",
+   "price": 0.005766,
+   "mc": 4209743.0,
+   "liquidity": 768455.64,
+   "vol24": 14272222.17,
+   "ch5m": 1.35,
+   "ch1h": -11.61,
+   "ch6h": -39.61,
+   "ch24h": -65.98,
+   "pair": "https://dexscreener.com/solana/G8kgi7aUpeX8EVR8VMkrth9SKEv5BietWC33UjAiiMGh",
+   "dex": "raydium",
+   "symbol": "CYBERLEEK",
+   "token": "ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "mentions": 2,
+   "authors": [
+    "DROLLIN459",
+    "Gurr07"
+   ],
+   "alpha_score": 62
+  },
+  {
+   "chain": "solana",
+   "price": 0.3598,
+   "mc": 358886423.0,
+   "liquidity": 3412454.57,
+   "vol24": 5168108.19,
+   "ch5m": -0.36,
+   "ch1h": -0.36,
+   "ch6h": 11.4,
+   "ch24h": 32.24,
+   "pair": "https://dexscreener.com/solana/FnzKY6x7entQ1eR3D225dQyT7ybfka4PskBMQhb8L3CC",
+   "dex": "pumpswap",
+   "symbol": "ANSEM",
+   "token": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
+   "mentions": 1,
+   "authors": [
+    "Manny1384"
+   ],
+   "alpha_score": 55
+  }
+ ]
+}
