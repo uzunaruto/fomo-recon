@@ -1,0 +1,23 @@
+{
+  "count": 2,
+  "tokens": [
+    {
+      "tok": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+      "sym": "Index",
+      "callers": [
+        "juerzzz"
+      ],
+      "holdings": 3520.096172597072,
+      "pnl": 901.7209255941492
+    },
+    {
+      "tok": "0xfb1bcb6817f7b8fa86896d3253b16aeb7bd6a5a8",
+      "sym": "worth",
+      "callers": [
+        "0xElPatron95"
+      ],
+      "holdings": 247.01213331233924,
+      "pnl": 0.0
+    }
+  ]
+}

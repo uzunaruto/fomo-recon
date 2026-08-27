@@ -1,0 +1,22 @@
+{
+  "generated": "2026-08-27",
+  "note": "Live dari FomoScan thesis feed (real-time), chain robinhood (4663)",
+  "candidates": [
+    {
+      "sym": "worth", "chain": "robinhood",
+      "ca": "0xfb1bcb6817f7b8fa86896d3253b16aeb7bd6a5a8",
+      "mc": 781412, "liq": 110249, "vol24": 112382,
+      "px_24h": 35.54, "px_1h": 3.93, "px_6h": 8.02,
+      "caller": "0xElPatron95", "caller_hold": 247,
+      "verdict": "EARLY - MC < 1M, volume 1x MC, momentum naik"
+    },
+    {
+      "sym": "Index", "chain": "robinhood",
+      "ca": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+      "mc": 26941421, "liq": 783635, "vol24": 398561,
+      "px_24h": 65.95, "px_1h": -1.24, "px_6h": 21.32,
+      "caller": "juerzzz", "caller_hold": 3520, "caller_pnl": 902,
+      "verdict": "BESAR tapi momentum +66% 24h, whale udah profit $902"
+    }
+  ]
+}
