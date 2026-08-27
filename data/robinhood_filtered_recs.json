@@ -1,0 +1,10 @@
+{
+  "generated": "2026-08-27",
+  "filter": "MC<5M | liq>=50K | smart money | volume | potensi 3x",
+  "results": [
+    {"sym":"DIH","verdict":"PASS semua filter","mc":672109,"liq":123145,"vol":340514,"vmc":0.51,"px6":72.9,"px24":127.0,"hold":7507,"caller":"SheffC_eth","ca":"0x17bb0c898254406b1ea2e8e99b0c263e26c9e4a4","pot3x":"2-22x","score":45},
+    {"sym":"worth","verdict":"PASS tapi sinyal lemah","mc":788928,"liq":110748,"vol":113084,"vmc":0.14,"px6":8.0,"px24":36.8,"hold":247,"caller":"0xElPatron95","ca":"0xfb1bcb6817f7b8fa86896d3253b16aeb7bd6a5a8","pot3x":"3-19x","score":18},
+    {"sym":"EARLY","verdict":"REJECT wash/dust-liq","mc":102454,"liq":791,"vol":3464995,"vmc":33.8,"px6":-56.4,"px24":139.0,"hold":199,"caller":"manutradezzz","ca":"0x4d3e09736d50ddc72b7919e81cf5a889207747df","note":"volume dari pair liq $373-791 = wash"},
+    {"sym":"Index","verdict":"REJECT MC>5M","mc":24759770,"liq":746752,"vol":408512,"vmc":0.02,"px6":21.3,"px24":47.9,"hold":3520,"caller":"juerzzz","ca":"0x56910d4409f3a0c78c64dd8d0545ff0705389870"}
+  ]
+}
