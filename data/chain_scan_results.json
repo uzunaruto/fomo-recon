@@ -1,0 +1,13 @@
+{
+  "generated": "2026-08-27",
+  "method": "Robinhood chain scan (blockscout + dexscreener + rpc)",
+  "total_tokens_scanned": 52,
+  "filter": "MC<5M | liq>=50K",
+  "top_candidates": [
+    {"sym":"GPUEM","mc":539682,"liq":76361,"vol":526216,"vmc":1.0,"px6":21219,"px24":21219,"buy_sell":"1885/321","holders":0,"ca":"0x0290076d5e2db5b4cef92a5dbf1b6ef3f0347e2b","note":"FRESH launch, pump gila, heavy buy"},
+    {"sym":"NET","mc":4089522,"liq":675572,"vol":2658848,"vmc":0.7,"px6":-3.8,"px24":-35.9,"holders":4772,"ca":"0xca9c78dd337a67f6e0077f65f5e9218719d30edf"},
+    {"sym":"UP","mc":4731830,"liq":1389578,"vol":1289857,"vmc":0.3,"px6":-9.1,"px24":0.6,"holders":3874,"ca":"0x57c0e45cb534413d1c20a4240955d6bb250bb4f1"},
+    {"sym":"VEX","mc":3604553,"liq":329734,"vol":244617,"vmc":0.1,"px6":36.1,"px24":19.8,"holders":5132,"ca":"0x8ff92566f2e81bdd68edfaa8cde73942a723796b"},
+    {"sym":"FRONG","mc":4030809,"liq":517004,"vol":1067942,"vmc":0.3,"px6":-1.3,"px24":-20.4,"holders":13257,"ca":"0x6245e67affa44a23077f0ea7f981a8dc743a0c47"}
+  ]
+}
