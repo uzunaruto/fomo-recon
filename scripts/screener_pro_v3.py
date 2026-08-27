@@ -260,14 +260,28 @@ def llm_analyze(cands):
     prompt = f"""You are scoring {len(cands)} micro-cap tokens on Robinhood chain (4663, Uniswap V3).
 Anti-trap rules: reject coins whose volume is wallet-clusters/insiders churning. Never assume high volume=organic, many wallets=independent, low MC=upside, good narrative=good token. Tax + exitability are the decisive signals.
 Scoring weights (total 100): Narrative 15 | Smart Money 10 (cap) | Whale 10 | Liquidity 15 | Volume/Momentum 5 | Tokenomics 10 | Contract Safety 15 (hard gate: unverified+owner=auto-reject) | Holder Distribution Quality 20.
-Return JSON ONLY:
+Return JSON ONLY. Express ALL entry/target levels in MARKET CAP (MC) dollars, NOT token price. Keys: entry_mc/inv_mc/tp1_mc/tp2_mc/tp3_mc (e.g. \"$2.5M-$3.0M\").
 {{"rankings":[
-  {{"addr":"0x..","score":0,"conviction":1-10,"phase":"VERY_EARLY|EARLY|GOOD_ENTRY|EXTENDED|OVERHEATED|DISTRIBUTION","narrative":"1 line","smart_money":"yes/no/unknown","wash_risk":0.0-1.0,"wash_reason":"...","entry":"AGGRESSIVE|CONSERVATIVE|DIP|NO_ENTRY","entry_zone":"$X-$Y","invalidation":"...","tp1":"$","tp2":"$","tp3":"$","rr":"1:2","risk":"top risk","enter":[3 reasons],"avoid":[3 reasons]}}
+  {{"addr":"0x..","score":0,"conviction":1-10,"phase":"VERY_EARLY|EARLY|GOOD_ENTRY|EXTENDED|OVERHEATED|DISTRIBUTION","narrative":"1 line","smart_money":"yes/no/unknown","wash_risk":0.0-1.0,"wash_reason":"...","entry":"AGGRESSIVE|CONSERVATIVE|DIP|NO_ENTRY","entry_mc":"$X M-$Y M","inv_mc":"$X M","tp1_mc":"$X M","tp2_mc":"$X M","tp3_mc":"$X M","rr":"1:2","risk":"top risk","enter":[3 reasons],"avoid":[3 reasons]}}
 ], "best_overall":"0x..","best_early":"0x..","best_meme":"0x..","best_utility":"0x..","best_rr":"0x..","highest_risk":"0x..","avoid":"0x..","watch3":["0x..","0x..","0x.."],"summary":"2-3 sentence final market summary"}}
 Candidate data:
 {json.dumps(pack, default=str)}"""
     try:
         raw = llm_call(prompt)
+        # validate JSON; if broken, retry once with strict instruction
+        if isinstance(raw, str) and not raw.startswith("LLM_ERROR"):
+            cleaned = raw.strip()
+            if cleaned.startswith("```"):
+                cleaned = re.sub(r"^```[a-zA-Z]*\s*", "", cleaned, flags=re.M)
+                i = cleaned.find("{"); 
+                if i >= 0: cleaned = cleaned[i:]
+            try:
+                json.loads(cleaned)
+                return raw
+            except Exception:
+                strict = prompt + "\n\nCRITICAL: Previous response was NOT valid JSON and was REJECTED. Output ONLY valid JSON. Every key and string MUST use double quotes. Do NOT put newlines inside string values. Do NOT use markdown fences. Arrays must be [\"a\",\"b\"] not [{\"key\":...}]. Return the exact schema."
+                raw2 = llm_call(strict)
+                return raw2
         return raw
     except Exception as e:
         return f"LLM_ERROR: {e}"
@@ -379,13 +393,39 @@ def main():
             top = [c for c in cands if c.get("llm_score") is not None]
             top.sort(key=lambda c: c.get("llm_score",0), reverse=True)
             for i,c in enumerate(top[:5],1):
+                mc = (c.get('mc') or 0)
                 print(f"\n  #{i} {c.get('symbol','?'):<8} {c.get('name','')[:22]:<22} score={c.get('llm_score')} conviction={c.get('llm_conv')}")
-                print(f"     phase={c.get('llm_phase')}  MC=${(c.get('mc') or 0)/1e3:.0f}K  liq=${(c.get('liq_usd') or 0):.0f}  vol24=${(c.get('vol_24h') or 0)/1e3:.0f}K  V/MC={(c.get('v_mc') or 0):.1f}")
+                print(f"     phase={c.get('llm_phase')}  MC=${mc/1e6:.2f}M  liq=${(c.get('liq_usd') or 0):.0f}  vol24=${(c.get('vol_24h') or 0)/1e3:.0f}K  V/MC={(c.get('v_mc') or 0):.1f}")
                 print(f"     holders={c.get('holders')} top10={c.get('top10_pct')}% top1={c.get('top1_pct')}%  verified={c.get('verified')}  age={c.get('age_hours')}h")
                 print(f"     flags={c.get('contract_flags')}")
                 r = score.get(c["addr"].lower())
                 if r:
-                    print(f"     entry={r.get('entry')} zone={r.get('entry_zone')} tp1={r.get('tp1')} tp2={r.get('tp2')} tp3={r.get('tp3')} rr={r.get('rr')}")
+                    def fmt_mc(v, base=None):
+                        # accept LLM MC string like "$2.5M-$3.0M" (range -> first) or "$3000K"
+                        if v is None: return None
+                        s = str(v).replace("$","").replace(" ","").lower()
+                        # split ranges "2.5m-3.0m" / "2.5-3.0m" -> use first number
+                        s = re.split(r"[-–—]", s)[0]
+                        if s.endswith("m"): return float(s[:-1].replace(",",""))
+                        if s.endswith("k"): return float(s[:-1].replace(",",""))/1000
+                        return None
+                    em = fmt_mc(r.get("entry_mc")) or fmt_mc(r.get("entry_zone")) or (mc/1e6)
+                    cprice = c.get("price_usd")
+                    # fallback: convert price-based TPs to MC via current price ratio
+                    def tp_to_mc(tp):
+                        if tp is None or not cprice: return None
+                        st=str(tp).replace("$","").replace(" ","").replace(",","")
+                        if st.lower().endswith(("m","k")): return fmt_mc(st)
+                        try:
+                            pv=float(st)
+                            return (mc/1e6)*(pv/cprice) if cprice>0 else None
+                        except: return None
+                    t1=fmt_mc(r.get("tp1_mc")) or tp_to_mc(r.get("tp1"))
+                    t2=fmt_mc(r.get("tp2_mc")) or tp_to_mc(r.get("tp2"))
+                    t3=fmt_mc(r.get("tp3_mc")) or tp_to_mc(r.get("tp3"))
+                    em = em or (mc/1e6)
+                    def fm(x): return f"${x:.2f}M" if x else "—"
+                    print(f"     entry={r.get('entry')}  entryMC={fm(em)}  TP1 MC={fm(t1)}  TP2 MC={fm(t2)}  TP3 MC={fm(t3)}  RR={r.get('rr')}")
                     print(f"     enter: {r.get('enter')}")
                     print(f"     avoid: {r.get('avoid')}")
                     print(f"     risk: {r.get('risk')}  wash={r.get('wash_risk')} ({r.get('wash_reason')})")
