@@ -14,7 +14,7 @@ Architecture:
 Chain: 4663 / robinhood. Blockscout-first (fast, no RPC bottleneck).
 RPC (swap sim / tax) is BEST-EFFORT with timeout — never blocks the pipeline.
 """
-import json, urllib.request, time, os, sys, math, urllib.parse
+import json, urllib.request, time, os, sys, math, urllib.parse, re
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -150,9 +150,13 @@ def deep_holders(addr, decimals, topn=20):
     """Top-N holder concentration + wash detection via transfers."""
     res = {"total": None, "top10_pct": None, "top1_pct": None, "top1_val": None,
            "holders_fetched": 0, "transfers": [], "repeat_tx": 0, "uniq_wallets": 0}
-    # holders
-    h = bs(f"/tokens/{addr}/holders?items_count=50")
-    items = h.get("items", [])
+    # holders — retry 2x for intermittent 500
+    items = []
+    for attempt in range(2):
+        h = bs(f"/tokens/{addr}/holders?items_count=50")
+        if not h.get("ERR"):
+            items = h.get("items", [])
+            if items: break
     total_supply = parse_val((h.get("total_supply") if isinstance(h.get("total_supply"),dict) else None), decimals) or None
     # fallback: use sum
     vals = []
@@ -223,12 +227,23 @@ def tax_signal(addr, pair_addr, dec_reverse=None):
 # ---------- PHASE 5: LLM MINIMAX M3 ----------
 def llm_call(prompt, system="You are an expert crypto/on-chain analyst."):
     body = {"model": GMI_MODEL,
+            "max_tokens": 6000,
             "messages":[{"role":"system","content":system},{"role":"user","content":prompt}]}
     req = urllib.request.Request(GMI_BASE+"/chat/completions",
         data=json.dumps(body).encode(),
         headers={"Content-Type":"application/json","Authorization":f"Bearer {GMI_KEY}","User-Agent":UA})
-    with urllib.request.urlopen(req, timeout=LLM_TIMEOUT) as r:
-        return json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    last = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=LLM_TIMEOUT) as r:
+                return json.loads(r.read().decode())["choices"][0]["message"]["content"]
+        except Exception as e:
+            last = e
+            if getattr(e, "code", None) in (429, 500, 502, 503):
+                time.sleep(8*(attempt+1))
+            else:
+                raise
+    raise last
 
 def llm_analyze(cands):
     """Feed candidate JSON to MiniMax M3 for qualitative scoring + ranking."""
@@ -341,9 +356,18 @@ def main():
     # ---- inline TOP 5 render (sorted by LLM score if available, else vol/liq) ----
     clean_llm = llm_raw
     if isinstance(llm_raw, str) and llm_raw.strip().startswith("```"):
-        import re
-        m = re.search(r"```(?:json)?\s*(.*?)```", llm_raw, re.S)
-        if m: clean_llm = m.group(1).strip()
+        # robust strip: remove opening fence line, then cut from first '{'
+        s = re.sub(r"^```[a-zA-Z]*\s*", "", llm_raw.strip(), flags=re.M)
+        i = s.find("{")
+        if i >= 0: s = s[i:]
+        # try to close unclosed fence at end
+        j = s.rfind("```")
+        if j > 0: s = s[:j]
+        clean_llm = s.strip()
+        # if trailing text after final '}', cut it
+        k = clean_llm.rfind("}")
+        if k >= 0 and not clean_llm.rstrip().endswith("}"):
+            clean_llm = clean_llm[:k+1]
     if isinstance(clean_llm, str) and not clean_llm.startswith("LLM_ERROR") and clean_llm.strip().startswith("{"):
         try:
             jr = json.loads(clean_llm)
