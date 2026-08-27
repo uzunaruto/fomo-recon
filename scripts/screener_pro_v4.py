@@ -350,8 +350,21 @@ def tax_sim_live(cand, addr, decimals=18):
         t0 = "0x" + t0r[26:].lower()
         t1 = "0x" + t1r[26:].lower()
     except Exception as e:
+        # Pool read failed (rate limit / non-standard pool). Fall back to
+        # token-level honeypot check so every token still gets a signal.
+        holder = _pick_holder(cand)
+        if holder:
+            hp = _token_transfer_honeypot(addr, holder)
+            hp["note"] = hp.get("note","") + f" (pool_read:{str(e)[:30]})"
+            return hp
         return {"method":"SKIPPED","reason":f"pool_read:{str(e)[:50]}"}
-    if fee == 0 or fee > 1_000_000: return {"method":"SKIPPED","reason":f"bad_fee:{fee}"}
+    if fee == 0 or fee > 1_000_000:
+        holder = _pick_holder(cand)
+        if holder:
+            hp = _token_transfer_honeypot(addr, holder)
+            hp["note"] = hp.get("note","") + f" (bad_fee:{fee})"
+            return hp
+        return {"method":"SKIPPED","reason":f"bad_fee:{fee}"}
 
     # Determine our token & quote token. Quote = the NON-our token (assume 18 dec).
     our = addr.lower()
