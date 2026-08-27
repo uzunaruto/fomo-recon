@@ -29,10 +29,12 @@ SWAP_ROUTER = "0xcaf681a66d020601342297493863e78c959e5cb2"  # Robinhood V3
 FACTORY = "0x1f7d7550b1b028f7571e69a784071f0205fd2efa"
 UA = "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36"
 MAX_CANDIDATES = 14
+MICRO = False  # set by --micro flag
 LLM_ENABLED = True
 LLM_TIMEOUT = 120
 TAX_SIM_ENABLED = True    # best-effort, only on top 5 post-LLM
 OUT = os.path.expanduser("~/fomo-recon/data/pro_v4_ranking.json")
+OUT_MICRO = os.path.expanduser("~/fomo-recon/data/pro_v4_micro_ranking.json")
 
 # gmi (MiniMax M3) via config.yaml
 try:
@@ -80,12 +82,16 @@ def ds(tokens):
             for p in j.get("pairs", []):
                 a = p.get("baseToken", {}).get("address","").lower()
                 if not a: continue
-                if a not in out or (p.get("liquidity",{}).get("usd") or 0) > (out[a].get("liq_usd") or 0):
+                chain = p.get("chainId","")
+                # Robinhood pair wins over non-RH with higher liq (micro mode targets RH)
+                if a not in out or (chain == "robinhood" and out[a].get("chain") != "robinhood") or \
+                   (chain == out[a].get("chain") and (p.get("liquidity",{}).get("usd") or 0) > (out[a].get("liq_usd") or 0)):
                     pc = p.get("priceChange",{}) or {}
                     v = p.get("volume",{}) or {}
                     out[a] = {
+                        "symbol": (p.get("baseToken",{}) or {}).get("symbol",""),
                         "pair_addr": p.get("pairAddress",""), "dex": p.get("dexId",""),
-                        "chain": p.get("chainId",""), "price_usd": p.get("priceUsd"),
+                        "chain": chain, "price_usd": p.get("priceUsd"),
                         "liq_usd": (p.get("liquidity",{}) or {}).get("usd"),
                         "liq_base": (p.get("liquidity",{}) or {}).get("base"),
                         "liq_quote": (p.get("liquidity",{}) or {}).get("quote"),
@@ -158,15 +164,55 @@ def discover(max_pages=4):
         next_url = "/tokens?" + urllib.parse.urlencode({k: v for k, v in np.items() if v is not None})
     return tokens
 
+# ---------- MICRO-CAP DISCOVERY (sub-1M, new/trending tokens) ----------
+def discover_micro():
+    """Discover sub-1M candidates: DexScreener trending + recent token-profiles,
+    plus Blockscout recently-created ERC-20 tokens. Returns {addr: meta}."""
+    tokens = {}
+    # 1) DexScreener trending (most reliable for small/new)
+    for ep in ["https://api.dexscreener.com/token-profiles/latest/v1",
+               "https://api.dexscreener.com/token-boosts/latest/v1",
+               "https://api.dexscreener.com/latest/dex/search?q=robinhood"]:
+        try:
+            req = urllib.request.Request(ep, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                j = json.loads(r.read().decode())
+            arr = j if isinstance(j, list) else j.get("tokens", j.get("pairs", []))
+            for it in arr:
+                a = (it.get("tokenAddress") or it.get("baseToken",{}).get("address") or "").lower()
+                if not a or a in tokens: continue
+                tok = it.get("token",{}) if isinstance(it.get("token"),dict) else {}
+                tokens[a] = {"name": tok.get("name") or it.get("baseToken",{}).get("name"),
+                             "symbol": tok.get("symbol") or it.get("baseToken",{}).get("symbol"),
+                             "decimals": _dec(tok.get("decimals") or it.get("baseToken",{}).get("decimals")),
+                             "holders": None, "type": "ERC-20", "_src": "ds-trend"}
+        except Exception:
+            pass
+        time.sleep(0.5)
+    # 2) Blockscout recently-created tokens (sort by creation, catch brand-new)
+    try:
+        j = bs("/tokens?type=ERC-20&items_count=50&sort=created_at&order=desc")
+        for it in (j.get("items") or []):
+            a = (it.get("address_hash") or "").lower()
+            if a and a not in tokens:
+                tokens[a] = {"name": it.get("name"), "symbol": it.get("symbol"),
+                             "decimals": _dec(it.get("decimals")), "holders": it.get("holders_count"),
+                             "type": it.get("type"), "_src": "bs-new"}
+    except Exception:
+        pass
+    return tokens
+
 # ---------- PHASE 3: HARD GATES ----------
-def hard_gates(addr, d):
+def hard_gates(addr, d, micro=False):
     mc = d.get("mc") or 0
     liq = d.get("liq_usd") or 0
     vol = d.get("vol_24h") or 0
+    max_mc = 1_000_000 if micro else 5_000_000
+    min_liq = 500 if micro else 1000
     reasons = []
     if not mc or mc <= 0: reasons.append("no_mc")
-    if mc and mc > 5_000_000: reasons.append(f"mc>{mc/1e6:.1f}M")
-    if liq < 1000: reasons.append(f"liq<${liq:.0f}")
+    if mc and mc > max_mc: reasons.append(f"mc>{mc/1e6:.1f}M")
+    if liq < min_liq: reasons.append(f"liq<${liq:.0f}")
     if vol and liq and vol/liq > 40: reasons.append("v/mc_wash_risk")
     return reasons
 
@@ -652,13 +698,19 @@ def render_top5(cands, llm_raw, fomo_data=None, serial_deps=None, tax_sims=None)
 # ---------- MAIN ----------
 def main():
     import urllib.parse
-    print("=== MICIN SCREENER PRO v4 (MiniMax M3 + Deployer + Timeline + FomoScan + Tax) ===")
+    micro = "--micro" in sys.argv
+    global MICRO; MICRO = micro
+    label = "MICRO" if micro else "MAIN"
+    print(f"=== MICIN SCREENER PRO v4 {label} (MiniMax M3 + Deployer + Timeline + FomoScan + Tax) ===")
     t0 = time.time()
 
     # Phase 1: discover
-    print("[1/6] Discovering ERC-20 tokens...")
-    toks = discover()
+    print(f"[1/6] Discovering {'trending+recent' if micro else 'ERC-20'} tokens...")
+    toks = discover_micro() if micro else discover()
     print(f"  -> {len(toks)} tokens found")
+    if micro:
+        for a, t in toks.items():
+            print(f"     {(t.get('symbol') or '?')[:10]:<10} src={t.get('_src','?')}")
 
     # Phase 2: dexscreener enrich
     print("[2/6] DexScreener enrich...")
@@ -670,15 +722,17 @@ def main():
     print("[3/6] Hard gates...")
     cands = []
     for a, d in dd.items():
+        if micro and d.get("chain") and d.get("chain") != "robinhood":
+            continue  # micro mode targets Robinhood chain only
         sym = (toks.get(a,{}) or {}).get("symbol","")
-        reasons = hard_gates(a, d)
+        reasons = hard_gates(a, d, micro=micro)
         if reasons: continue
-        cands.append({"addr": a, "symbol": sym, "holders_count": (toks.get(a,{}) or {}).get("holders"), **d})
+        cands.append({"addr": a, "symbol": d.get("symbol") or (toks.get(a,{}) or {}).get("symbol",""), "holders_count": (toks.get(a,{}) or {}).get("holders"), **d})
     cands.sort(key=lambda c: (c.get("vol_24h") or 0)/(c.get("liq_usd") or 1), reverse=True)
     cands = cands[:MAX_CANDIDATES]
     print(f"  -> {len(cands)} candidates after gates")
     for c in cands:
-        print(f"     {c['symbol']:<10} MC=${(c.get('mc') or 0)/1e3:.0f}K liq=${(c.get('liq_usd') or 0):.0f} vol=${(c.get('vol_24h') or 0)/1e3:.0f}K")
+        print(f"     {(c.get('symbol') or '?')[:10]:<10} MC=${(c.get('mc') or 0)/1e3:.0f}K liq=${(c.get('liq_usd') or 0):.0f} vol=${(c.get('vol_24h') or 0)/1e3:.0f}K")
 
     # Phase 4: deep per candidate (parallel)
     print("[4/6] Deep analysis (Blockscout, parallel)...")
@@ -785,13 +839,14 @@ def main():
 
     # Phase 8: output
     print("[8/8] Saving output...")
-    out = {"generated": datetime.now(timezone.utc).isoformat(),
+    out = {"generated": datetime.now(timezone.utc).isoformat(), "mode": label,
            "candidates": cands, "llm_raw": llm_raw, "serial_deps": serial_deps,
            "fomo_data": fomo_data, "tax_sims": tax_sims,
            "candidates_analyzed": len(cands)}
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT,"w") as f: json.dump(out,f,indent=2,default=str)
-    print(f"  -> {OUT}")
+    outpath = OUT_MICRO if micro else OUT
+    os.makedirs(os.path.dirname(outpath), exist_ok=True)
+    with open(outpath,"w") as f: json.dump(out,f,indent=2,default=str)
+    print(f"  -> {outpath}")
     print(f"\nDone in {time.time()-t0:.1f}s. {len(cands)} candidates analyzed.")
 
     # Render
