@@ -1,0 +1,20 @@
+{
+  "generated": "2026-08-27",
+  "method": "MICIN SCREENER PRO (24-phase) - robinhood chain 4663",
+  "candidates_analyzed": 12,
+  "top5": [
+    {"rank":1,"sym":"WOOF","score":68.3,"mc":3143699,"liq":271295,"vol24":246402,"vmc":0.1,"top10_pct":13.76,"vol_quality":"ORGANIC","cluster":"none","security":"SAFE"},
+    {"rank":2,"sym":"FRONG","score":64.3,"mc":4271098,"liq":533504,"vol24":1069605,"vmc":0.2,"top10_pct":21.17,"vol_quality":"MIXED","cluster":"none","security":"SAFE"},
+    {"rank":3,"sym":"WOJAK","score":62.4,"mc":3122339,"liq":202490,"vol24":55546,"vmc":0.0,"top10_pct":26.22,"vol_quality":"ORGANIC","cluster":"none","security":"SAFE"},
+    {"rank":4,"sym":"BULL","score":57.5,"mc":3254312,"liq":167050,"vol24":454780,"vmc":0.1,"top10_pct":24.12,"vol_quality":"MIXED","cluster":"none","security":"SAFE"},
+    {"rank":5,"sym":"CHEF","score":45.6,"mc":195898,"liq":62613,"vol24":694905,"vmc":3.5,"top10_pct":33.75,"vol_quality":"MIXED","cluster":"none","security":"CAUTION","phase":"OVERHEATED"}
+  ],
+  "red_flags": {
+    "UP": "HIGH RISK - top10 97.63% concentration + unverified contract",
+    "NET": "HIGH RISK - top10 92.85% concentration",
+    "WTH": "HIGH RISK - top10 78.22% + owner function",
+    "WIF": "HIGH RISK - top10 85.11% + owner function",
+    "NPC": "MANIPULATED - 97.83% concentration, AVOID"
+  },
+  "avoid": "NPC"
+}
