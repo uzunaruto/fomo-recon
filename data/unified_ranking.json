@@ -1,0 +1,12 @@
+{
+  "generated": "2026-08-27",
+  "method": "UNIFIED: chain scan (blockscout+rpc) + fomoscan thesis whale confirmation",
+  "filter": "MC<5M | liq>=50K",
+  "top_candidates": [
+    {"sym":"CHEF","score":35.1,"mc":250076,"liq":69735,"vol":459120,"vmc":1.8,"px6":4729,"px24":4729,"buy_sell":"2112/1723","holders":675,"ca":"0x9979e0271bd5e3650da1db2ae3e362b97778c03b","whale":false,"note":"Sushi Chef, fresh pump"},
+    {"sym":"NET","score":20.6,"mc":3867715,"liq":656946,"vol":2346663,"vmc":0.6,"px6":-3.8,"px24":-27.9,"holders":4776,"ca":"0xca9c78dd337a67f6e0077f65f5e9218719d30edf","whale":false},
+    {"sym":"UP","score":20.2,"mc":4710070,"liq":1383860,"vol":1245179,"vmc":0.3,"px6":-7.6,"px24":10.4,"holders":3885,"ca":"0x57c0e45cb534413d1c20a4240955d6bb250bb4f1","whale":false},
+    {"sym":"VEX","score":17.8,"mc":3616187,"liq":328219,"vol":252094,"vmc":0.1,"px6":27.5,"px24":19.9,"holders":5138,"ca":"0x8ff92566f2e81bdd68edfaa8cde73942a723796b","whale":false},
+    {"sym":"FRONG","score":17.0,"mc":4261912,"liq":533260,"vol":1074346,"vmc":0.2,"px6":5.2,"px24":-16.5,"holders":13264,"ca":"0x6245e67affa44a23077f0ea7f981a8dc743a0c47","whale":false}
+  ]
+}
